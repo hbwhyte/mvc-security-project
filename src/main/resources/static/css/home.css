@@ -1,5 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Chicle");
+
 .admin-message-text {
 	font-style: normal;
 	font-size: 22px;
 	color: #004080;
+}
+
+.user-message-text {
+	font-family: 'Chicle',serif;
+	font-size: 22px;
+	color: #4c0080;
 }

@@ -18,6 +18,7 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Transient;
+import security.services.ValidPassword;
 
 @Entity
 @Table(name = "user")
@@ -36,8 +37,8 @@ public class User {
     @NotEmpty(message = "*Please provide your password")
     private String username;
     @Column(name = "password")
-    @Length(min = 5, message = "*Your password must have at least 5 characters")
     @NotEmpty(message = "*Please provide your password")
+    @ValidPassword
     @Transient
     private String password;
     @Column(name = "first_name")
