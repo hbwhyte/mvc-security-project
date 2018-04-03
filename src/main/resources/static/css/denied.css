@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Patua+One");
+
+.denied-message-text {
+	font-family: 'Patua One',serif;
+	font-size: 40px;
+	color: #B22222;
+}

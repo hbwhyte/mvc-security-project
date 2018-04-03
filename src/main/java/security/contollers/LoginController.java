@@ -70,5 +70,24 @@ public class LoginController {
         return modelAndView;
     }
 
+    @RequestMapping(value="/user/home", method = RequestMethod.GET)
+    public ModelAndView userHome(){
+        ModelAndView modelAndView = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("userName", "Welcome " + user.getFirstName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
+        modelAndView.addObject("userMessage","Enjoy a banana with one of our favourite users!");
+        modelAndView.setViewName("user/home");
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/access-denied", method = RequestMethod.GET)
+    public ModelAndView denied(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("access-denied");
+        modelAndView.addObject("deniedMessage","Access denied: Komodo says NO.");
+        return modelAndView;
+    }
+
 
 }
