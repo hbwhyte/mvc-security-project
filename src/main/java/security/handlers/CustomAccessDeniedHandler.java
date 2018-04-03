@@ -1,4 +1,4 @@
-package security.configuration;
+package security.handlers;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+/**
+ * If user tries to access a page they do not have appropriate permissions to,
+ * it will log a warning, and redirect the user to the Access Denied page.
+ *
+ * Implements Springs AccessDeniedHandler interface
+ */
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 
     public static final Logger LOG
@@ -25,11 +31,13 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
         Authentication auth
                 = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
-            LOG.warning("User: " + auth.getName()
+            // Creates Warning log if a user tries to access unauthorized page
+            LOG.warning("User " + auth.getName()
                     + " attempted to access the protected URL: "
                     + request.getRequestURI());
         }
 
+        // Redirects to access-denied.html
         response.sendRedirect(request.getContextPath() + "/access-denied");
     }
 }
