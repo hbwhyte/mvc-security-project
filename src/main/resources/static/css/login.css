@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Patua+One");
+
 .wrapper {
 	margin-top: 80px;
 	margin-bottom: 20px;
@@ -7,11 +9,13 @@
   max-width: 420px;
   padding: 30px 38px 66px;
   margin: 0 auto;
-  background-color: #eee;
-  border: 3px dotted rgba(0,0,0,0.1);
+  background-color: rgba(255,255,255,0.7);
+  border: 3px rgba(0,0,0,0.1);
+  transform: translateY(33%);
   }
 
 .form-signin-heading {
+  font-family: 'Patua One', serif;
   text-align:center;
   margin-bottom: 30px;
 }
@@ -21,6 +25,10 @@
   font-size: 16px;
   height: auto;
   padding: 10px;
+}
+
+.btn-pad {
+    padding: 20px;
 }
 
 input[type="text"] {
@@ -34,3 +42,13 @@ input[type="password"] {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+body {
+background: url{[[@{/images/backgroundboats.jpg}]]}
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+
+
