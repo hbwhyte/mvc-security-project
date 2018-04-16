@@ -14,12 +14,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.model.User;
 import security.services.UserService;
+import security.services.email.EmailService;
+
+import java.io.IOException;
 
 @Controller
 public class LoginController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private EmailService emailService;
 
     @RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
     public ModelAndView login(){
@@ -51,6 +57,11 @@ public class LoginController {
             modelAndView.setViewName("registration");
         } else {
             userService.saveUser(user);
+            try {
+                emailService.sendEmail(user.getEmail());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");

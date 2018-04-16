@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Chicle");
+@import url("https://fonts.googleapis.com/css?family=Chicle|Patua+One");
 
 .admin-message-text {
 	font-style: normal;
@@ -7,7 +7,18 @@
 }
 
 .user-message-text {
-	font-family: 'Chicle',serif;
+	font-family: 'Patua One',serif;
 	font-size: 40px;
-	color: #4c0080;
+	color: #ffd400;
 }
+
+.my-header {
+    font-family: Helvetica, serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+#bootstrap-overrides .my-background {
+  background-color: rgba(255,255,255,0.5)
+}
+
